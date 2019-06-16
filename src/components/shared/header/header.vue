@@ -3,12 +3,22 @@
     <container-component className="header__inner">
       <router-link class="header__link" to="/">Secretship Contest</router-link>
 
-      <div class="header__user-info" v-if="isUserLoggedIn">
+      <div class="header__user-info" v-if="isUserLoggedIn && isUserRequestFinished && user">
         <a class="header__link" href="#" v-on:click="logout">Logout</a>
-        <img class="header__user-avatar" :src="user.avatar.url" :alt="user.name">
+
+        <router-link class="header__user-avatar" :to="routerLink">
+          <img :src="user.avatar.url" :alt="user.name">
+        </router-link>
       </div>
 
-      <a class="header__link" href="https://t.me/secretshipcontestbot" target="_blank" v-else>Login</a>
+      <a
+          class="header__link"
+          href="https://t.me/secretshipcontestbot"
+          target="_blank"
+          v-else-if="!isUserLoggedIn && isUserRequestFinished"
+      >
+        Login
+      </a>
     </container-component>
   </header>
 </template>
@@ -50,6 +60,12 @@
       width: 32px;
       height: 32px;
       border-radius: 50px;
+      overflow: hidden;
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
     }
   }
 </style>
@@ -69,8 +85,14 @@
       isUserLoggedIn() {
         return this.$store.state.isUserLoggedIn;
       },
+      isUserRequestFinished() {
+        return this.$store.state.isUserRequestFinished;
+      },
       user() {
         return this.$store.state.user;
+      },
+      routerLink() {
+        return `/user/${this.user.id}`;
       },
     },
     components: {

@@ -12,7 +12,13 @@ export default new Vuex.Store({
   state: {
     isUserLoggedIn: false,
     user: null,
+
     users: [],
+
+    // We need these fields for checking if all required operations were finished or not so we could display either loader or actual content
+    isAuthorizationCheckFinished: false,
+    isUserRequestFinished: false,
+    isUsersRequestFinished: false,
   },
   getters,
   mutations,

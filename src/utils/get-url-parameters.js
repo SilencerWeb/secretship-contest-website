@@ -12,5 +12,7 @@ export const getUrlParameters = () => {
     }
   });
 
+  if (Object.keys(parameters).length === 0) return null;
+
   return parameters;
 };

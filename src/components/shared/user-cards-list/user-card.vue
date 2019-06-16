@@ -4,10 +4,10 @@
       <img class="user-card__avatar" :src="avatarUrl" :alt="fullName" v-if="avatarUrl">
       <div
           class="user-card__avatar user-card__avatar_placeholder"
-          :style="getAvatarPlaceholderBackgroundColorStyle"
+          :style="avatarPlaceholderBackgroundColorStyle"
           v-else
       >
-        {{ getAvatarPlaceholderText }}
+        {{ avatarPlaceholderText }}
       </div>
 
       <div class="user-card__info">
@@ -94,7 +94,7 @@
 
         return `${this.firstName} ${this.lastName}`;
       },
-      getAvatarPlaceholderBackgroundColorStyle() {
+      avatarPlaceholderBackgroundColorStyle() {
         const backgroundColors = [ // Colors are taken from macOS Telegram client
           { top: '#ffac8e', bottom: '#ff8597' },
           { top: '#ffdc97', bottom: '#ffc28d' },
@@ -110,7 +110,7 @@
 
         return `background-image: linear-gradient(to bottom, ${randomBackgroundColor.top}, ${randomBackgroundColor.bottom});`;
       },
-      getAvatarPlaceholderText() {
+      avatarPlaceholderText() {
         const { firstName, lastName } = this;
 
         const firstLetterOfFirstName = firstName.slice(0, 1);

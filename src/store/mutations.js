@@ -9,3 +9,15 @@ export const setUser = (state, user) => {
 export const setUsers = (state, users) => {
   state.users = users;
 };
+
+export const setIsAuthorizationCheckFinished = (state, isAuthorizationCheckFinished) => {
+  state.isAuthorizationCheckFinished = isAuthorizationCheckFinished;
+};
+
+export const setIsUserRequestFinished = (state, isUserRequestFinished) => {
+  state.isUserRequestFinished = isUserRequestFinished;
+};
+
+export const setIsUsersRequestFinished = (state, isUsersRequestFinished) => {
+  state.isUsersRequestFinished = isUsersRequestFinished;
+};
