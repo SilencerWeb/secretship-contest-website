@@ -11,7 +11,7 @@
             :firstName="user.first_name"
             :lastName="user.last_name"
             :registrationDate="user.created"
-            :avatarUrl="user.avatar && user.avatar.url"
+            :avatar="user.avatar"
             :key="user.id"
         />
       </div>

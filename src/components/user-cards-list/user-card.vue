@@ -1,11 +1,11 @@
 <template>
   <div class="user-card" :class="className">
     <router-link class="user-card__inner" :to="routerLink">
-      <img class="user-card__avatar" :src="avatarUrl" :alt="fullName" v-if="avatarUrl">
+      <img class="user-card__avatar" :src="avatar.url" :alt="fullName" v-if="avatar.url">
       <div
           class="user-card__avatar user-card__avatar_placeholder"
           :style="avatarPlaceholderBackgroundColorStyle"
-          v-else
+          v-else-if="avatar.placeholder"
       >
         {{ avatarPlaceholderText }}
       </div>
@@ -82,8 +82,6 @@
 <script>
   import {
     getFullName,
-    getAvatarPlaceholderBackgroundColorStyle,
-    getAvatarPlaceholderText,
     getFormattedRegistrationDate,
   } from '../../utils';
 
@@ -95,7 +93,7 @@
       firstName: String,
       lastName: String,
       registrationDate: String,
-      avatarUrl: String,
+      avatar: Object,
     },
     computed: {
       routerLink() {
@@ -105,10 +103,10 @@
         return getFullName(this.firstName, this.lastName);
       },
       avatarPlaceholderBackgroundColorStyle() {
-        return getAvatarPlaceholderBackgroundColorStyle();
+        return this.avatar.placeholder.backgroundColorStyle;
       },
       avatarPlaceholderText() {
-        return getAvatarPlaceholderText(this.firstName, this.lastName);
+        return this.avatar.placeholder.text;
       },
       formattedRegistrationDate() {
         return getFormattedRegistrationDate(this.registrationDate, 'en-US');

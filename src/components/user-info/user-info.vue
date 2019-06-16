@@ -1,11 +1,11 @@
 <template>
   <div class="user-info">
     <container-component className="user-info__inner">
-      <img class="user-info__avatar" :src="avatarUrl" :alt="fullName" v-if="avatarUrl">
+      <img class="user-info__avatar" :src="avatar.url" :alt="fullName" v-if="avatar.url">
       <div
           class="user-info__avatar user-info__avatar_placeholder"
           :style="avatarPlaceholderBackgroundColorStyle"
-          v-else
+          v-else-if="avatar.placeholder"
       >
         {{ avatarPlaceholderText }}
       </div>
@@ -78,10 +78,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 35px;
+        font-size: 45px;
         font-weight: 700;
         color: #ffffff;
         background-color: var(--accent-color);
+
+        @include xs-down {
+          font-size: 30px;
+        }
       }
     }
 
@@ -127,8 +131,6 @@
   import ContainerComponent from '../container/container';
   import {
     getFullName,
-    getAvatarPlaceholderBackgroundColorStyle,
-    getAvatarPlaceholderText,
     getUsernameLink,
     getFormattedRegistrationDate,
   } from '../../utils';
@@ -142,17 +144,17 @@
       username: String,
       registrationDate: String,
       languageCode: String,
-      avatarUrl: String,
+      avatar: Object,
     },
     computed: {
       fullName() {
         return getFullName(this.firstName, this.lastName);
       },
       avatarPlaceholderBackgroundColorStyle() {
-        return getAvatarPlaceholderBackgroundColorStyle();
+        return this.avatar.placeholder.backgroundColorStyle;
       },
       avatarPlaceholderText() {
-        return getAvatarPlaceholderText(this.firstName, this.lastName);
+        return this.avatar.placeholder.text;
       },
       usernameLink() {
         return getUsernameLink(this.username);

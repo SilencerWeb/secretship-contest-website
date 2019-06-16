@@ -7,7 +7,7 @@
         :username="user.username"
         :registrationDate="user.created"
         :languageCode="user.language_code"
-        :avatarUrl="user.avatar.url"
+        :avatar="user.avatar"
         v-if="user"
     />
   </default-layout>
