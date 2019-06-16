@@ -1,7 +1,4 @@
-:root {
-  --primary-font-family: "Roboto", sans-serif;
-  
-  --primary-color: #000000;
-  --secondary-color: #70767b;
-  --accent-color: #0088cc;
-}
+$screen-xs-down: 575px;
+$screen-sm-down: 767px;
+$screen-md-down: 991px;
+$screen-lg-down: 1199px;

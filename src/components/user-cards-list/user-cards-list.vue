@@ -20,6 +20,9 @@
 </template>
 
 <style lang="scss" scoped>
+  @import "../../assets/styles/variables";
+  @import "../../assets/styles/mixins";
+
   .user-cards-list {
     padding-top: 25px;
     padding-bottom: 25px;
@@ -27,6 +30,10 @@
     &__list {
       display: flex;
       flex-wrap: wrap;
+
+      @include xs-down {
+        display: block;
+      }
     }
 
     &__title {
@@ -41,6 +48,10 @@
 
     &__user-card {
       flex: 0 0 33.333%;
+
+      @include sm-down {
+        flex-basis: 50%;
+      }
     }
   }
 </style>

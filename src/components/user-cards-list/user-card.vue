@@ -21,7 +21,8 @@
 <style lang="scss" scoped>
   .user-card {
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: rgba(0, 0, 0, 0.05);
     }
 

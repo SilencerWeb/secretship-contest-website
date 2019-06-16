@@ -6,7 +6,7 @@
           <router-link class="header__link" to="/">Secretship Contest</router-link>
         </li>
 
-        <li class="header__breadcrumbs-item" v-if="currentUser">
+        <li class="header__breadcrumbs-item header__breadcrumbs-item_user-name" v-if="currentUser">
           {{ currentUserFullName }}
         </li>
       </ul>
@@ -32,6 +32,9 @@
 </template>
 
 <style lang="scss" scoped>
+  @import "../../assets/styles/variables";
+  @import "../../assets/styles/mixins";
+
   .header {
 
     &__inner {
@@ -58,7 +61,7 @@
       font-weight: 700;
       margin-right: 20px;
 
-      &:after {
+      &:before {
         content: '/';
         position: absolute;
         top: 50%;
@@ -67,11 +70,25 @@
         transform: translateY(-50%);
       }
 
+      &:first-child {
+
+        &:before {
+          display: none;
+        }
+      }
+
       &:last-child {
         margin-right: 0;
+      }
 
-        &:after {
+      &_user-name {
+
+        @include xs-down {
           display: none;
+
+          &:before {
+            display: none;
+          }
         }
       }
     }

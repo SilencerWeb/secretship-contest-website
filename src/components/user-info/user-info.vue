@@ -36,13 +36,21 @@
 </template>
 
 <style lang="scss" scoped>
+  @import "../../assets/styles/variables";
+  @import "../../assets/styles/mixins";
+
   .user-info {
     padding-top: 25px;
+    padding-bottom: 25px;
 
     &__inner {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @include sm-down {
+        display: block;
+      }
     }
 
     &__avatar {
@@ -50,6 +58,18 @@
       height: 150px;
       border-radius: 150px;
       margin-right: 15px;
+
+      @include sm-down {
+        display: block;
+        margin-right: auto;
+        margin-bottom: 15px;
+        margin-left: auto;
+      }
+
+      @include xs-down {
+        width: 125px;
+        height: 125px;
+      }
 
       &_placeholder {
         display: flex;
@@ -62,11 +82,22 @@
       }
     }
 
+    &__details {
+
+      @include sm-down {
+        text-align: center;
+      }
+    }
+
     &__details-line {
       font-size: 18px;
       font-weight: 500;
       margin-top: 0;
       margin-bottom: 0;
+
+      @include xs-down {
+        font-size: 16px;
+      }
 
       a,
       span {
