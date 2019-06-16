@@ -1,2 +1,2 @@
-export { getUsers } from './users';
+export { getUsers, getMe } from './users';
 export { login, verifyToken } from './auth';

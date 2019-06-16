@@ -8,14 +8,19 @@ export const login = (data) => {
       localStorage.setItem(AUTH_TOKEN, token);
       return user;
     })
-    .catch(() => null);
+    .catch((error) => {
+      const errorMessage = error.data ? error.data.message : error.message;
+      throw new Error(errorMessage);
+    });
 };
 
 export const verifyToken = (token) => {
   return axios.post(`${API_URL}/verifyToken`, { token })
-    .then(({ data }) => data)
-    .catch(() => {
+    .then(({ data: { message } }) => message)
+    .catch((error) => {
       localStorage.removeItem(AUTH_TOKEN);
-      return null;
+
+      const errorMessage = error.data ? error.data.message : error.message;
+      throw new Error(errorMessage);
     });
 };
