@@ -3,7 +3,7 @@
     <container-component className="header__inner">
       <router-link class="header__link" to="/">Secretship Contest</router-link>
 
-      <div class="header__user-info" v-if="isUserLoggedIn && isUserRequestFinished && user">
+      <div class="header__user-info" v-if="isUserLoggedIn && user">
         <a class="header__link" href="#" v-on:click="logout">Logout</a>
 
         <router-link class="header__user-avatar" :to="routerLink">
@@ -15,7 +15,7 @@
           class="header__link"
           href="https://t.me/secretshipcontestbot"
           target="_blank"
-          v-else-if="!isUserLoggedIn && isUserRequestFinished"
+          v-else
       >
         Login
       </a>

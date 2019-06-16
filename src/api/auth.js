@@ -9,7 +9,7 @@ export const login = (data) => {
       return user;
     })
     .catch((error) => {
-      const errorMessage = error.data ? error.data.message : error.message;
+      const errorMessage = error.response ? error.response.data.message : error.message;
       throw new Error(errorMessage);
     });
 };
@@ -20,7 +20,7 @@ export const verifyToken = (token) => {
     .catch((error) => {
       localStorage.removeItem(AUTH_TOKEN);
 
-      const errorMessage = error.data ? error.data.message : error.message;
+      const errorMessage = error.response ? error.response.data.message : error.message;
       throw new Error(errorMessage);
     });
 };
