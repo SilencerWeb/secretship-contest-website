@@ -8,6 +8,7 @@
         :registrationDate="user.created"
         :languageCode="user.language_code"
         :avatarUrl="user.avatar.url"
+        v-if="user"
     />
   </default-layout>
 </template>

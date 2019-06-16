@@ -1,7 +1,15 @@
 <template>
   <header class="header">
     <container-component className="header__inner">
-      <router-link class="header__link" to="/">Secretship Contest</router-link>
+      <ul class="header__breadcrumbs">
+        <li class="header__breadcrumbs-item">
+          <router-link class="header__link" to="/">Secretship Contest</router-link>
+        </li>
+
+        <li class="header__breadcrumbs-item" v-if="currentUser">
+          {{ currentUserFullName }}
+        </li>
+      </ul>
 
       <div class="header__user-info" v-if="isUserLoggedIn && user">
         <a class="header__link" href="#" v-on:click="logout">Logout</a>
@@ -36,9 +44,41 @@
       padding-left: 10px;
     }
 
+    &__breadcrumbs {
+      display: flex;
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &__breadcrumbs-item {
+      position: relative;
+      font-size: 15px;
+      font-weight: 700;
+      margin-right: 20px;
+
+      &:after {
+        content: '/';
+        position: absolute;
+        top: 50%;
+        right: -12.5px;
+        color: rgba(0, 0, 0, 0.2);
+        transform: translateY(-50%);
+      }
+
+      &:last-child {
+        margin-right: 0;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+
     &__link {
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
       color: var(--accent-color);
 
@@ -72,6 +112,7 @@
 
 <script>
   import ContainerComponent from '../container/container';
+  import { getFullName } from '../../utils';
 
   export default {
     name: 'HeaderComponent',
@@ -90,6 +131,13 @@
       },
       user() {
         return this.$store.state.user;
+      },
+      currentUser() {
+        const { id } = this.$route.params;
+        return this.$store.state.users.find((user) => user.id === id);
+      },
+      currentUserFullName() {
+        return getFullName(this.currentUser.first_name, this.currentUser.last_name);
       },
       routerLink() {
         return `/user/${this.user.id}`;
