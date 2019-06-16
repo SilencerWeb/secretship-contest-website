@@ -1,0 +1,20 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  -ms-overflow-style: scrollbar;
+}
+
+body {
+  position: relative;
+  min-width: 320px;
+  font-family: var(--primary-font-family);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--primary-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

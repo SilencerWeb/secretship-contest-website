@@ -5,6 +5,9 @@ import router from './router';
 import store from './store';
 import { AUTH_TOKEN } from './constants';
 
+import 'normalize.css';
+import './assets/styles/main.scss';
+
 
 Vue.config.productionTip = false;
 

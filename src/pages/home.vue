@@ -1,15 +1,15 @@
 <template>
-  <div>
-    Hi :3
-  </div>
+  <default-layout>
+  </default-layout>
 </template>
 
 <script>
+  import DefaultLayout from './layouts/default-layout';
   import { getUrlParameters } from '../utils';
   import { AUTH_TOKEN } from '../constants';
 
   export default {
-    name: 'home',
+    name: 'HomePage',
     mounted() {
       const urlParameters = getUrlParameters();
       const token = localStorage.getItem(AUTH_TOKEN);
@@ -18,6 +18,9 @@
       if (urlParameters && !token) {
         this.$store.dispatch('login', urlParameters);
       }
+    },
+    components: {
+      DefaultLayout,
     },
   };
 </script>
