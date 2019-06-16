@@ -9,6 +9,9 @@
 </template>
 
 <style lang="scss" scoped>
+  @import "../../assets/styles/variables";
+  @import "../../assets/styles/mixins";
+
   .loader {
     position: fixed;
     top: 0;
@@ -23,6 +26,10 @@
     &__circle {
       position: relative;
       width: 100px;
+
+      @include sm-down {
+        width: 75px;
+      }
 
       &:before {
         content: '';

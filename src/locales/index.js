@@ -7,9 +7,10 @@ import { en, ru } from './translations';
 Vue.use(VueI18n);
 
 export const i18n = new VueI18n({
-  locale: 'en',
+  locale: navigator.language,
+  fallbackLocale: 'en-US',
   messages: {
-    en,
-    ru,
+    'en-US': en,
+    'ru-RU': ru,
   },
 });

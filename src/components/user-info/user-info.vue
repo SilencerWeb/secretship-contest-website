@@ -47,6 +47,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding-right: 10px;
+      padding-left: 10px;
 
       @include sm-down {
         display: block;
@@ -54,6 +56,7 @@
     }
 
     &__avatar {
+      flex-shrink: 0;
       width: 150px;
       height: 150px;
       border-radius: 150px;
@@ -67,8 +70,8 @@
       }
 
       @include xs-down {
-        width: 125px;
-        height: 125px;
+        width: 100px;
+        height: 100px;
       }
 
       &_placeholder {
@@ -83,6 +86,7 @@
     }
 
     &__details {
+      overflow: hidden;
 
       @include sm-down {
         text-align: center;
@@ -92,8 +96,11 @@
     &__details-line {
       font-size: 18px;
       font-weight: 500;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       margin-top: 0;
       margin-bottom: 0;
+      overflow: hidden;
 
       @include xs-down {
         font-size: 16px;

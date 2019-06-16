@@ -20,6 +20,7 @@
 
 <style lang="scss" scoped>
   .user-card {
+    overflow: hidden;
 
     &:hover,
     &:active {
@@ -37,6 +38,7 @@
     }
 
     &__avatar {
+      flex-shrink: 0;
       width: 50px;
       height: 50px;
       border-radius: 50px;
@@ -57,13 +59,17 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      overflow: hidden;
     }
 
     &__name {
       font-size: 14px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       color: var(--primary-color);
       margin-top: 0;
       margin-bottom: 0;
+      overflow: hidden;
     }
 
     &__registration-date {

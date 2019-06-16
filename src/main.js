@@ -34,7 +34,6 @@ new Vue({
       this.$store.commit('setIsAuthorizationCheckFinished', true);
     }
 
-    this.$store.dispatch('setUpLanguage', this);
     this.$store.dispatch('fetchUsers');
   },
 }).$mount('#app');

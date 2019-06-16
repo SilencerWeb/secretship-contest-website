@@ -65,7 +65,7 @@
         content: '/';
         position: absolute;
         top: 50%;
-        right: -12.5px;
+        left: -12.5px;
         color: rgba(0, 0, 0, 0.2);
         transform: translateY(-50%);
       }

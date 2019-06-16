@@ -11,7 +11,7 @@
             :firstName="user.first_name"
             :lastName="user.last_name"
             :registrationDate="user.created"
-            :avatarUrl="user.avatar.url"
+            :avatarUrl="user.avatar && user.avatar.url"
             :key="user.id"
         />
       </div>
@@ -43,7 +43,7 @@
       padding-left: 10px;
       padding-right: 10px;
       margin-top: 0;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
     }
 
     &__user-card {

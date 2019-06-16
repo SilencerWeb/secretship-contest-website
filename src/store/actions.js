@@ -2,14 +2,6 @@ import * as api from '../api';
 import { AUTH_TOKEN } from '../constants';
 
 
-export const setUpLanguage = (context, vueInstance) => {
-  const languages = window.navigator.languages;
-  const currentLanguage = languages[languages.length - 1]; // Because short version is always last, e.g. ['en-US', 'en']
-
-  vueInstance.$i18n.locale = currentLanguage;
-  context.commit('setLanguage', currentLanguage);
-};
-
 export const login = (context, urlParameters) => {
   api.login(urlParameters)
     .then((user) => {
