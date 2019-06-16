@@ -1,8 +1,9 @@
 import Vue from 'vue';
 
 import App from './app';
-import router from './router';
-import store from './store';
+import { router } from './router';
+import { store } from './store';
+import { i18n } from './locales';
 import { getUrlParameters } from './utils';
 import { AUTH_TOKEN } from './constants';
 
@@ -15,6 +16,7 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
+  i18n,
   render: (h) => h(App),
   mounted() {
     const urlParameters = getUrlParameters();
@@ -32,6 +34,7 @@ new Vue({
       this.$store.commit('setIsAuthorizationCheckFinished', true);
     }
 
+    this.$store.dispatch('setUpLanguage', this);
     this.$store.dispatch('fetchUsers');
   },
 }).$mount('#app');

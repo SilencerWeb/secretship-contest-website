@@ -1,7 +1,7 @@
 <template>
   <div class="user-cards-list">
     <container-component className="user-cards-list__inner">
-      <h2 class="user-cards-list__title">Users</h2>
+      <h2 class="user-cards-list__title">{{ $t('userCardsListTitle') }}</h2>
 
       <div class="user-cards-list__list">
         <user-card-component

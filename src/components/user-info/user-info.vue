@@ -12,23 +12,23 @@
 
       <div class="user-info__details">
         <p class="user-info__details-line" v-if="id">
-          ID: <span>{{ id }}</span>
+          {{ $t('userInfoDetailsIdText') }}: <span>{{ id }}</span>
         </p>
 
         <p class="user-info__details-line" v-if="fullName">
-          Name: <span>{{ fullName }}</span>
+          {{ $t('userInfoDetailsNameText') }}: <span>{{ fullName }}</span>
         </p>
 
         <p class="user-info__details-line" v-if="username">
-          Username: <a :href="usernameLink" target="_blank">{{ username }}</a>
+          {{ $t('userInfoDetailsUsernameText') }}: <a :href="usernameLink" target="_blank">{{ username }}</a>
         </p>
 
         <p class="user-info__details-line" v-if="formattedRegistrationDate">
-          Date of registration: <span>{{ formattedRegistrationDate }}</span>
+          {{ $t('userInfoDetailsRegistrationDateText') }}: <span>{{ formattedRegistrationDate }}</span>
         </p>
 
         <p class="user-info__details-line" v-if="languageCode">
-          Language code: <span>{{ languageCode }}</span>
+          {{ $t('userInfoDetailsLanguageCodeText') }}: <span>{{ languageCode }}</span>
         </p>
       </div>
     </container-component>

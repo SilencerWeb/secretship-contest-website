@@ -8,8 +8,10 @@ import createLogger from 'vuex/dist/logger';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+export const store = new Vuex.Store({
   state: {
+    language: 'en',
+
     isUserLoggedIn: false,
     user: null,
 

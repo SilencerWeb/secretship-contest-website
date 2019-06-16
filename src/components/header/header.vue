@@ -12,7 +12,7 @@
       </ul>
 
       <div class="header__user-info" v-if="isUserLoggedIn && user">
-        <a class="header__link" href="#" v-on:click="logout">Logout</a>
+        <a class="header__link" href="#" v-on:click="logout">{{ $t('headerLogoutButtonText') }}</a>
 
         <router-link class="header__user-avatar" :to="routerLink">
           <img :src="user.avatar.url" :alt="user.name">
@@ -25,7 +25,7 @@
           target="_blank"
           v-else
       >
-        Login
+        {{ $t('headerLoginButtonText') }}
       </a>
     </container-component>
   </header>

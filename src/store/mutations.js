@@ -1,3 +1,7 @@
+export const setLanguage = (state, language) => {
+  state.language = language;
+};
+
 export const setIsUserLoggedIn = (state, isUserLoggedIn) => {
   state.isUserLoggedIn = isUserLoggedIn;
 };
