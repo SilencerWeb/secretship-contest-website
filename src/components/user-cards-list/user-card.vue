@@ -73,7 +73,12 @@
 </style>
 
 <script>
-  import { getRandomNumber } from '../../../utils';
+  import {
+    getFullName,
+    getAvatarPlaceholderBackgroundColorStyle,
+    getAvatarPlaceholderText,
+    getFormattedRegistrationDate,
+  } from '../../utils';
 
   export default {
     name: 'UserCardComponent',
@@ -90,49 +95,16 @@
         return `/user/${this.id}`;
       },
       fullName() {
-        if (!this.lastName) return this.firstName;
-
-        return `${this.firstName} ${this.lastName}`;
+        return getFullName(this.firstName, this.lastName);
       },
       avatarPlaceholderBackgroundColorStyle() {
-        const backgroundColors = [ // Colors are taken from macOS Telegram client
-          { top: '#ffac8e', bottom: '#ff8597' },
-          { top: '#ffdc97', bottom: '#ffc28d' },
-          { top: '#a8c8ff', bottom: '#948fff' },
-          { top: '#cdffb2', bottom: '#90f4a0' },
-          { top: '#8bffee', bottom: '#6af1e2' },
-          { top: '#9de3ff', bottom: '#6cc2ff' },
-          { top: '#f1c4ff', bottom: '#ee9cff' },
-        ];
-
-        const randomNumber = getRandomNumber(0, backgroundColors.length);
-        const randomBackgroundColor = backgroundColors[randomNumber];
-
-        return `background-image: linear-gradient(to bottom, ${randomBackgroundColor.top}, ${randomBackgroundColor.bottom});`;
+        return getAvatarPlaceholderBackgroundColorStyle();
       },
       avatarPlaceholderText() {
-        const { firstName, lastName } = this;
-
-        const firstLetterOfFirstName = firstName.slice(0, 1);
-        let firstLetterOfLastName = '';
-
-        if (lastName) {
-          firstLetterOfLastName = lastName.slice(0, 1);
-        }
-
-        return `${firstLetterOfFirstName}${firstLetterOfLastName}`.toLocaleUpperCase();
+        return getAvatarPlaceholderText(this.firstName, this.lastName);
       },
       formattedRegistrationDate() {
-        const registrationDateAsDate = new Date(this.registrationDate);
-
-        return registrationDateAsDate.toLocaleDateString(
-          'en-US',
-          {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-          },
-        );
+        return getFormattedRegistrationDate(this.registrationDate, 'en-US');
       },
     },
   };

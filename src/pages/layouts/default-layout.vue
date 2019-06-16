@@ -7,8 +7,8 @@
 </template>
 
 <script>
-  import HeaderComponent from '../../components/shared/header/header';
-  import LoaderComponent from '../../components/shared/loader/loader';
+  import HeaderComponent from '../../components/header/header';
+  import LoaderComponent from '../../components/loader/loader';
 
   export default {
     name: 'DefaultLayout',

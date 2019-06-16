@@ -6,7 +6,7 @@
 
 <script>
   import DefaultLayout from './layouts/default-layout';
-  import UserCardsListComponent from '../components/shared/user-cards-list/user-cards-list';
+  import UserCardsListComponent from '../components/user-cards-list/user-cards-list';
 
   export default {
     name: 'HomePage',

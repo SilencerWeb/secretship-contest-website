@@ -14,7 +14,7 @@
 
 <script>
   import DefaultLayout from './layouts/default-layout';
-  import UserInfoComponent from '../components/shared/user-info/user-info';
+  import UserInfoComponent from '../components/user-info/user-info';
 
   export default {
     name: 'UserPage',
