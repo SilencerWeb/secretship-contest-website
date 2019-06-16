@@ -1,4 +1,4 @@
-export const getUsersWithoutAuthorizedUser = (state) => {
+export const usersWithoutAuthorizedUser = (state) => {
   const authorizedUser = state.user;
   const users = state.users;
 

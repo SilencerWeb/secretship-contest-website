@@ -7,6 +7,8 @@
         <a class="header__link" href="#" v-on:click="logout">Logout</a>
         <img class="header__user-avatar" :src="user.avatar.url" :alt="user.name">
       </div>
+
+      <a class="header__link" href="https://t.me/secretshipcontestbot" target="_blank" v-else>Login</a>
     </container-component>
   </header>
 </template>
